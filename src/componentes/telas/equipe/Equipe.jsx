@@ -4,6 +4,7 @@ import { getEquipesAPI, getEquipePorIdAPI, deleteEquipePorIdAPI, cadastraEquipeA
 import Tabela from './Tabela';
 import Formulario from './Formulario';
 import Carregando from '../../comuns/Carregando';
+import { getJogosAPI } from '../../../servicos/JogoServico';
 
 
 function Equipe() {
@@ -19,8 +20,7 @@ function Equipe() {
         nome: "",
         sigla: "",
         cidade: "",
-        data_fundacao: "",
-        ativa: ""
+        jogo: ""
     };
     const [objeto, setObjeto] = useState(objetoVazio);
 
@@ -39,8 +39,17 @@ function Equipe() {
         }
     }
 
+    // lista de jogos para o select da chave estrangeira
+    const [listaJogos, setListaJogos] = useState([]);
+
+    const recuperaJogos = async () => {
+        const lista = await getJogosAPI();
+        setListaJogos(Array.isArray(lista) ? lista : []);
+    }
+
     useEffect(() => {
         recuperaEquipes();
+        recuperaJogos();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
@@ -86,7 +95,7 @@ function Equipe() {
         <EquipeContext.Provider value={
             {
                 listaObjetos, alerta, remover, objeto, editarObjeto,
-                acaoCadastrar, handleChange, novoObjeto, exibirForm, setExibirForm
+                acaoCadastrar, handleChange, novoObjeto, exibirForm, setExibirForm, listaJogos
             }
         }>
             <Carregando carregando={carregando}>

@@ -3,28 +3,28 @@ import InscricaoContext from './InscricaoContext';
 import Alerta from '../../comuns/Alerta';
 import Table from 'react-bootstrap/Table';
 import { Button } from 'react-bootstrap';
-import { formatoData, medalha } from '../../comuns/Uteis';
+import { formatoData, formataColocacao } from '../../comuns/Uteis';
 
 function Tabela() {
 
     const { alerta, listaObjetos, remover, novoObjeto, editarObjeto } = useContext(InscricaoContext);
 
     return (
-        <div className="tela">
-            <div className="cabecalho-tela">
+        <div className="container py-4">
+            <div className="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
                 <div>
-                    <h1><i className="bi bi-card-checklist"></i>Inscrições</h1>
-                    <p className="subtitulo">Equipes inscritas em cada campeonato, com pontos e colocação</p>
+                    <h1><i className="bi bi-card-checklist"></i> Inscrições</h1>
+                    <p className="text-muted mb-0">Equipes inscritas em cada campeonato, com pontos e colocação</p>
                 </div>
-                <Button className="btn-arena" onClick={() => novoObjeto()}>
+                <Button variant="primary" onClick={() => novoObjeto()}>
                     Nova inscrição <i className="bi bi-plus-circle"></i>
                 </Button>
             </div>
             <Alerta alerta={alerta} />
-            {listaObjetos.length === 0 && <h4 className="subtitulo">Nenhuma inscrição encontrada</h4>}
+            {listaObjetos.length === 0 && <h4 className="text-muted">Nenhuma inscrição encontrada</h4>}
             {listaObjetos.length > 0 && (
-                <div className="card-arena">
-                    <Table hover responsive>
+                <div>
+                    <Table striped bordered hover responsive>
                         <thead>
                             <tr>
                                 <th style={{ textAlign: 'center' }}>Ações</th>
@@ -40,19 +40,19 @@ function Tabela() {
                             {listaObjetos.map((objeto) => (
                                 <tr key={objeto.id}>
                                     <td align="center" style={{ whiteSpace: 'nowrap' }}>
-                                        <Button variant="outline-info" className="btn-acao" title="Editar" onClick={() => editarObjeto(objeto.id)}>
+                                        <Button variant="info" size="sm" className="me-1" title="Editar" onClick={() => editarObjeto(objeto.id)}>
                                             <i className="bi bi-pencil-square"></i>
                                         </Button>
-                                        <Button variant="outline-danger" className="btn-acao" title="Remover" onClick={() => { remover(objeto.id); }}>
+                                        <Button variant="danger" size="sm" title="Remover" onClick={() => { remover(objeto.id); }}>
                                             <i className="bi bi-trash"></i>
                                         </Button>
                                     </td>
                                     <td>{objeto.id}</td>
                                     <td>{objeto.campeonato_nome}</td>
-                                    <td><span className="sigla">{objeto.equipe_sigla}</span> {objeto.equipe_nome}</td>
+                                    <td><span className="badge bg-secondary">{objeto.equipe_sigla}</span> {objeto.equipe_nome}</td>
                                     <td>{formatoData(objeto.data_inscricao)}</td>
                                     <td><strong>{objeto.pontos}</strong></td>
-                                    <td>{medalha(objeto.colocacao)}</td>
+                                    <td>{formataColocacao(objeto.colocacao)}</td>
                                 </tr>
                             ))}
                         </tbody>

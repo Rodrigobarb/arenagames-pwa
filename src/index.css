@@ -1,126 +1,13 @@
-/* ===== Tema Arena Games (por cima do Bootstrap em modo escuro) ===== */
-:root {
-  --ag-roxo: #7c3aed;
-  --ag-ciano: #22d3ee;
-  --ag-fundo: #12101f;
-  --ag-card: #1c1930;
-  --ag-borda: #2e2a4a;
-}
-
+/* Estilos do Arena Games (o resto vem do Bootstrap) */
 body {
-  background: radial-gradient(circle at 15% 0%, #241b45 0%, var(--ag-fundo) 45%) fixed;
-  font-family: 'Inter', system-ui, sans-serif;
-  min-height: 100vh;
+  background-color: #f5f5f5;
 }
 
-h1, h2, h3, h4, h5, .navbar-brand, .titulo-arena {
-  font-family: 'Rajdhani', sans-serif;
-  font-weight: 700;
-  letter-spacing: .5px;
+/* Menu com o verde do IFSul */
+.menu-ifsul {
+  background-color: #2f8a3b;
 }
 
-/* Menu */
-.navbar-arena {
-  background: rgba(18, 16, 31, .85) !important;
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--ag-borda);
+.menu-ifsul .nav-link.active {
+  font-weight: bold;
 }
-.navbar-arena .navbar-brand {
-  font-size: 1.6rem;
-  background: linear-gradient(90deg, var(--ag-roxo), var(--ag-ciano));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-.navbar-arena .nav-link.active { color: var(--ag-ciano) !important; }
-
-/* Container das telas */
-.tela {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 24px 16px;
-}
-.cabecalho-tela {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-bottom: 16px;
-}
-.cabecalho-tela h1 { margin: 0; }
-.cabecalho-tela h1 i { color: var(--ag-ciano); margin-right: 8px; }
-.subtitulo { color: #9a95b8; margin: 0; }
-
-/* Cartão que envolve as tabelas */
-.card-arena {
-  background: var(--ag-card);
-  border: 1px solid var(--ag-borda);
-  border-radius: 14px;
-  padding: 8px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, .25);
-}
-.card-arena .table { margin: 0; --bs-table-bg: transparent; }
-.card-arena .table thead th {
-  color: #b9b3dd;
-  font-size: .8rem;
-  text-transform: uppercase;
-  letter-spacing: .5px;
-  border-bottom-color: var(--ag-borda);
-}
-.card-arena .table td { vertical-align: middle; }
-
-.btn-acao { padding: 2px 8px; margin: 0 2px; }
-
-.btn-arena {
-  background: linear-gradient(90deg, var(--ag-roxo), #9b5cf6);
-  border: none;
-  color: #fff;
-  font-weight: 600;
-}
-.btn-arena:hover { filter: brightness(1.15); color: #fff; }
-
-.sigla {
-  font-family: 'Rajdhani', sans-serif;
-  font-weight: 700;
-  background: rgba(34, 211, 238, .12);
-  color: var(--ag-ciano);
-  border-radius: 6px;
-  padding: 1px 8px;
-}
-
-/* Home */
-.hero {
-  border-radius: 18px;
-  padding: 40px 28px;
-  background: linear-gradient(120deg, rgba(124, 58, 237, .35), rgba(34, 211, 238, .15)), var(--ag-card);
-  border: 1px solid var(--ag-borda);
-  margin-bottom: 24px;
-}
-.hero h1 { font-size: 2.8rem; margin-bottom: 4px; }
-.card-numero {
-  background: var(--ag-card);
-  border: 1px solid var(--ag-borda);
-  border-radius: 14px;
-  padding: 18px;
-  height: 100%;
-  transition: transform .15s;
-  text-decoration: none;
-  color: inherit;
-  display: block;
-}
-.card-numero:hover { transform: translateY(-3px); border-color: var(--ag-roxo); color: inherit; }
-.card-numero i { font-size: 1.8rem; color: var(--ag-ciano); }
-.card-numero .numero { font-family: 'Rajdhani', sans-serif; font-size: 2.2rem; font-weight: 700; line-height: 1; }
-
-.campeonato-item {
-  background: var(--ag-card);
-  border: 1px solid var(--ag-borda);
-  border-left: 4px solid var(--ag-roxo);
-  border-radius: 12px;
-  padding: 14px 16px;
-  height: 100%;
-}
-
-/* Modal */
-.modal-content { background: var(--ag-card); border: 1px solid var(--ag-borda); }

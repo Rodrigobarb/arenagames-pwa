@@ -1,44 +1,39 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 import { NavLink, Outlet } from 'react-router-dom';
+
+// Logo do IFSul (imagem do site oficial do campus)
+const logoIfsul = 'https://passofundo.ifsul.edu.br/templates/padraogoverno01/img/img_logo_ifsul.png';
 
 function Menu() {
     return (
         <div>
-            <Navbar expand="lg" className="navbar-arena" sticky="top" collapseOnSelect>
+            <Navbar expand="lg" variant="dark" className="menu-ifsul">
                 <Container>
-                    <NavLink className="navbar-brand" to="/">
-                        <i className="bi bi-controller"></i> Arena Games
+                    <NavLink className="navbar-brand d-flex align-items-center gap-2" to="/">
+                        <img src={logoIfsul} alt="IFSul" height="40" />
+                        <span className="d-none d-sm-inline">| Arena Games</span>
                     </NavLink>
-                    <Navbar.Toggle aria-controls="menu-principal" />
-                    <Navbar.Collapse id="menu-principal">
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link as={NavLink} eventKey="home" to="/" end>
-                                <i className="bi bi-house"></i> Home
-                            </Nav.Link>
-                            <Nav.Link as={NavLink} eventKey="jogos" to="jogos">
-                                <i className="bi bi-joystick"></i> Jogos
-                            </Nav.Link>
-                            <Nav.Link as={NavLink} eventKey="equipes" to="equipes">
-                                <i className="bi bi-people"></i> Equipes
-                            </Nav.Link>
-                            <Nav.Link as={NavLink} eventKey="campeonatos" to="campeonatos">
-                                <i className="bi bi-trophy"></i> Campeonatos
-                            </Nav.Link>
-                            <Nav.Link as={NavLink} eventKey="inscricoes" to="inscricoes">
-                                <i className="bi bi-card-checklist"></i> Inscrições
-                            </Nav.Link>
-                        </Nav>
-                        <Nav>
-                            <Nav.Link as={NavLink} eventKey="sobre" to="sobre">
-                                <i className="bi bi-info-circle"></i> Sobre
-                            </Nav.Link>
+                            <NavLink className="nav-link" to="/" end>Home</NavLink>
+                            <NavDropdown title="Manutenções" id="basic-nav-dropdown">
+                                <NavLink className="dropdown-item" to="jogos">Jogos</NavLink>
+                                <NavLink className="dropdown-item" to="equipes">Equipes</NavLink>
+                                <NavLink className="dropdown-item" to="jogadores">Jogadores</NavLink>
+                            </NavDropdown>
+                            <NavLink className="nav-link" to="sobre">Sobre...</NavLink>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
             <Outlet />
+            <footer className="text-center text-muted small py-3">
+                Arena Games - Trabalho de Programação para Web - IFSul Câmpus Passo Fundo
+            </footer>
         </div>
     );
 }

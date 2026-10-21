@@ -8,32 +8,26 @@ import Dialogo from '../../comuns/Dialogo';
 
 function Formulario() {
 
-    const { objeto, handleChange, acaoCadastrar, alerta, exibirForm, setExibirForm } = useContext(EquipeContext);
+    const { objeto, handleChange, acaoCadastrar, alerta, exibirForm, setExibirForm, listaJogos } = useContext(EquipeContext);
 
     return (
         <Dialogo id="modalEdicao" titulo="Equipe"
             idform="formulario" acaoCadastrar={acaoCadastrar}
             exibirForm={exibirForm} setExibirForm={setExibirForm}>
             <Alerta alerta={alerta} />
-            <Col xs={12} md={3}>
-                <CampoEntrada value={objeto.id}
-                    id="txtId" name="id" label="ID"
-                    tipo="number" onchange={handleChange}
-                    readonly={true} />
-            </Col>
-            <Col xs={12} md={9}>
+            <Col xs={12} md={12}>
                 <CampoEntrada value={objeto.nome}
-                    id="txtNome" name="nome" label="Nome da equipe"
+                    id="txtNome" name="nome" label="Nome"
                     tipo="text" onchange={handleChange}
                     msgvalido="OK certo" msginvalido="Informe o nome da equipe"
                     requerido={true} readonly={false}
-                    maxCaracteres={60} />
+                    maxCaracteres={50} />
             </Col>
             <Col xs={12} md={4}>
                 <CampoEntrada value={objeto.sigla}
-                    id="txtSigla" name="sigla" label="Sigla (tag)"
+                    id="txtSigla" name="sigla" label="Sigla"
                     tipo="text" onchange={handleChange}
-                    msgvalido="OK certo" msginvalido="Informe a sigla (até 6 letras)"
+                    msgvalido="OK certo" msginvalido="Informe a sigla"
                     requerido={true} readonly={false}
                     maxCaracteres={6} />
             </Col>
@@ -42,22 +36,19 @@ function Formulario() {
                     id="txtCidade" name="cidade" label="Cidade"
                     tipo="text" onchange={handleChange}
                     requerido={false} readonly={false}
-                    maxCaracteres={60} />
+                    maxCaracteres={50} />
             </Col>
-            <Col xs={12} md={6}>
-                <CampoEntrada value={objeto.data_fundacao}
-                    id="txtDataFundacao" name="data_fundacao" label="Data de fundação"
-                    tipo="date" onchange={handleChange}
-                    requerido={false} readonly={false} />
-            </Col>
-            <Col xs={12} md={6}>
-                <CampoSelect value={objeto.ativa}
-                    id="txtAtiva" name="ativa" label="Situação"
+            <Col xs={12} md={12}>
+                <CampoSelect value={objeto.jogo}
+                    id="txtJogo" name="jogo" label="Jogo"
                     onchange={handleChange}
-                    msgvalido="OK certo" msginvalido="Informe se a equipe está ativa"
+                    msgvalido="OK certo" msginvalido="Selecione o jogo"
                     requerido={true}>
-                    <option value={true}>Ativa</option>
-                    <option value={false}>Inativa</option>
+                    {listaJogos.map((jogo) => (
+                        <option key={jogo.id} value={jogo.id}>
+                            {jogo.nome}
+                        </option>
+                    ))}
                 </CampoSelect>
             </Col>
         </Dialogo>

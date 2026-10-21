@@ -21,10 +21,7 @@ export const corSituacao = (situacao) => {
     }
 }
 
-// Ícone de medalha para as três primeiras colocações
-export const medalha = (colocacao) => {
-    if (colocacao === 1) return '🥇';
-    if (colocacao === 2) return '🥈';
-    if (colocacao === 3) return '🥉';
+// Mostra a colocação como 1º, 2º... ou "-" se ainda não tem
+export const formataColocacao = (colocacao) => {
     return colocacao ? colocacao + 'º' : '-';
 }

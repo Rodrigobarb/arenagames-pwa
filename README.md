@@ -1,11 +1,11 @@
 # Arena Games - PWA (Frontend)
 
-PWA em React para o **Arena Games**, sistema de gerenciamento de campeonatos de e-sports.
+PWA em React para o **Arena Games**, sistema simples para cadastrar jogos, equipes e jogadores de e-sports.
 Trabalho prático da disciplina de Programação para Web - IFSul Passo Fundo.
 
 ## Telas
-- **Home**: resumo com totais e os campeonatos cadastrados
-- **Jogos**, **Equipes**, **Campeonatos** e **Inscrições**: CRUD completo (listar, cadastrar, editar e remover)
+- **Home**: total de jogos, equipes e jogadores
+- **Jogos**, **Equipes** e **Jogadores**: CRUD completo (listar, cadastrar, editar e remover)
 - **Sobre**
 
 ## Tecnologias
@@ -28,9 +28,9 @@ src/
   App.jsx                     rotas da aplicação
   componentes/
     Menu.jsx                  barra de navegação + <Outlet/>
-    comuns/                   componentes reaproveitáveis (Alerta, Carregando, CampoEntrada, CampoSelect, Dialogo...)
+    comuns/                   componentes reaproveitáveis (Alerta, Carregando, CampoEntrada, CampoSelect, Dialogo)
     telas/
       Home.jsx, Sobre.jsx
-      jogo/ equipe/ campeonato/ inscricao/   (Componente principal, Context, Tabela e Formulario)
+      jogo/ equipe/ jogador/   (Componente principal, Context, Tabela e Formulario)
   servicos/                   funções que chamam a API com fetch
 ```

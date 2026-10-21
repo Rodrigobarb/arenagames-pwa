@@ -28,7 +28,7 @@ function Dialogo(props) {
     };
 
     return (
-        <Modal show={props.exibirForm} onHide={() => props.setExibirForm(false)} size={props.tamanho || "lg"} centered>
+        <Modal show={props.exibirForm} onHide={() => props.setExibirForm(false)} size="lg">
             <Modal.Header closeButton>
                 <Modal.Title>{props.titulo}</Modal.Title>
             </Modal.Header>
@@ -44,7 +44,7 @@ function Dialogo(props) {
                     <Button variant="secondary" onClick={() => props.setExibirForm(false)}>
                         Fechar
                     </Button>
-                    <Button className="btn-arena" type="submit">
+                    <Button variant="success" type="submit">
                         Salvar <i className="bi bi-save"></i>
                     </Button>
                 </Modal.Footer>

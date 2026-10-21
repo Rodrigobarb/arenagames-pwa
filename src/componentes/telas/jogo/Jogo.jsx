@@ -15,10 +15,8 @@ function Jogo() {
 
     const objetoVazio = {
         id: 0,
-        titulo: "",
-        genero: "",
-        desenvolvedora: "",
-        jogadores_por_time: ""
+        nome: "",
+        genero: ""
     };
     const [objeto, setObjeto] = useState(objetoVazio);
 

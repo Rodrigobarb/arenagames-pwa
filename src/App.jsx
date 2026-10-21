@@ -7,8 +7,7 @@ import Home from "./componentes/telas/Home";
 import Sobre from "./componentes/telas/Sobre";
 import Jogo from "./componentes/telas/jogo/Jogo";
 import Equipe from "./componentes/telas/equipe/Equipe";
-import Campeonato from "./componentes/telas/campeonato/Campeonato";
-import Inscricao from "./componentes/telas/inscricao/Inscricao";
+import Jogador from "./componentes/telas/jogador/Jogador";
 
 const router = createBrowserRouter([
   {
@@ -28,12 +27,8 @@ const router = createBrowserRouter([
         element: <Equipe />
       },
       {
-        path: "campeonatos",
-        element: <Campeonato />
-      },
-      {
-        path: "inscricoes",
-        element: <Inscricao />
+        path: "jogadores",
+        element: <Jogador />
       },
       {
         path: "sobre",
