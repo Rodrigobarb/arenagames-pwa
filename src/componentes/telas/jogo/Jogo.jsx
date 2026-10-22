@@ -31,6 +31,10 @@ function Jogo() {
         if (window.confirm('Deseja remover este jogo?')) {
             let retornoAPI = await deleteJogoPorIdAPI(id);
             setAlerta({ status: retornoAPI.status, message: retornoAPI.message });
+            // se a API não deixou remover, mostra um alerta na tela
+            if (retornoAPI.status === 'error') {
+                window.alert(retornoAPI.message);
+            }
             recuperaJogos();
         }
     }

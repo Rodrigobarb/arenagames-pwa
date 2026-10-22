@@ -35,6 +35,10 @@ function Equipe() {
         if (window.confirm('Deseja remover esta equipe?')) {
             let retornoAPI = await deleteEquipePorIdAPI(id);
             setAlerta({ status: retornoAPI.status, message: retornoAPI.message });
+            // se a API não deixou remover, mostra um alerta na tela
+            if (retornoAPI.status === 'error') {
+                window.alert(retornoAPI.message);
+            }
             recuperaEquipes();
         }
     }

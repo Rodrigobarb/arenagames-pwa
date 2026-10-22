@@ -35,6 +35,10 @@ function Jogador() {
         if (window.confirm('Deseja remover este jogador?')) {
             let retornoAPI = await deleteJogadorPorIdAPI(id);
             setAlerta({ status: retornoAPI.status, message: retornoAPI.message });
+            // se a API não deixou remover, mostra um alerta na tela
+            if (retornoAPI.status === 'error') {
+                window.alert(retornoAPI.message);
+            }
             recuperaJogadores();
         }
     }
